@@ -8,6 +8,7 @@ import { playSound } from '../../core/sounds.js'
 const DURATION = 60
 const HIGHSCORE_KEY = 'mathkids.challenge.highscore'
 
+let questionCounter = 0
 function genQuestion() {
   const a = 2 + Math.floor(Math.random() * 9)
   const b = 2 + Math.floor(Math.random() * 9)
@@ -18,7 +19,14 @@ function genQuestion() {
     const c = result + (offset === 0 ? a : offset)
     if (c > 0 && c !== result) choices.add(c)
   }
-  return { a, b, result, choices: [...choices].sort(() => Math.random() - 0.5) }
+  questionCounter += 1
+  return {
+    id: questionCounter,
+    a,
+    b,
+    result,
+    choices: [...choices].sort(() => Math.random() - 0.5),
+  }
 }
 
 export default function Challenge() {
@@ -141,7 +149,7 @@ export default function Challenge() {
 
             <AnimatePresence mode="wait">
               <motion.div
-                key={`${q.a}-${q.b}-${time}`}
+                key={q.id}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -20, opacity: 0 }}
