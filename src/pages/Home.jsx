@@ -16,7 +16,7 @@ export default function Home() {
           className="text-center mb-8"
         >
           <h1 className="text-5xl sm:text-6xl font-bold text-purple-700 mb-2">
-            Math Kids 🎉
+            Maths Malins 🎉
           </h1>
           <p className="text-xl text-purple-500">
             Apprends les maths en t'amusant !

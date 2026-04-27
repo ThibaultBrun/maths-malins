@@ -1,4 +1,4 @@
-# Math Kids
+# Maths Malins
 
 Application web ludique pour apprendre les mathématiques aux enfants (additions, soustractions, multiplications, divisions).
 
