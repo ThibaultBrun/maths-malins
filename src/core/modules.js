@@ -1,0 +1,38 @@
+export const MODULES = [
+  {
+    id: 'multiplications',
+    title: 'Multiplications',
+    emoji: '✖️',
+    color: 'from-orange-400 to-pink-500',
+    description: 'Apprends les tables avec des astuces malines !',
+    path: '/multiplications',
+    available: true,
+  },
+  {
+    id: 'additions',
+    title: 'Additions',
+    emoji: '➕',
+    color: 'from-green-400 to-emerald-500',
+    description: 'Les amis de 10, les doubles, les retenues...',
+    path: '/additions',
+    available: true,
+  },
+  {
+    id: 'soustractions',
+    title: 'Soustractions',
+    emoji: '➖',
+    color: 'from-yellow-400 to-orange-500',
+    description: 'Compte en avançant, comme un jeu de marches !',
+    path: '/soustractions',
+    available: true,
+  },
+  {
+    id: 'divisions',
+    title: 'Divisions',
+    emoji: '➗',
+    color: 'from-purple-400 to-indigo-500',
+    description: 'Partager en parts égales — l’inverse des multiplications.',
+    path: '/divisions',
+    available: true,
+  },
+]
