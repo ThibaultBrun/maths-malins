@@ -4,7 +4,7 @@ const ProfileContext = createContext(null)
 
 const STORAGE_KEY = 'mathkids.profile.v1'
 
-const MODULE_IDS = ['multiplications', 'additions', 'soustractions', 'divisions']
+const MODULE_IDS = ['multiplications', 'additions', 'soustractions', 'divisions', 'fractions']
 
 function emptyModuleProgress() {
   return { lessonStars: {}, mastery: {}, seenDiscovery: {} }

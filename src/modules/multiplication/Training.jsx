@@ -3,12 +3,13 @@ import Quiz from '../../components/Quiz.jsx'
 import { getMultiplicationsForTable, getHintFor } from './tricks.js'
 
 export default function Training() {
-  const { table: tableParam } = useParams()
+  const { table: tableParam, level: levelParam } = useParams()
   const table = Number.parseInt(tableParam, 10)
   const allQuestions = getMultiplicationsForTable(table)
 
   return (
     <Quiz
+      key={`${table}-${levelParam || 2}`}
       moduleId="multiplications"
       lessonId={String(table)}
       allQuestions={allQuestions}

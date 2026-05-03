@@ -11,13 +11,14 @@ import { useProfile } from '../core/ProfileContext.jsx'
 import BackButton from './BackButton.jsx'
 import Mascot from './Mascot.jsx'
 import NumPad from './NumPad.jsx'
+import { DIFFICULTIES } from './DifficultyLinks.jsx'
 import { playSound } from '../core/sounds.js'
 import { buildSession, buildChoices, computeStars } from '../core/quizEngine.js'
 
 const LEVEL_INFO = {
-  1: { icon: '🌱', label: 'Facile', sub: '2 choix', choices: 2, badge: 'bg-green-200 text-green-900' },
-  2: { icon: '💪', label: 'Moyen', sub: '4 choix', choices: 4, badge: 'bg-yellow-200 text-yellow-900' },
-  3: { icon: '🔥', label: 'Expert', sub: 'tape la réponse', choices: 0, badge: 'bg-red-200 text-red-900' },
+  1: { ...DIFFICULTIES[1], choices: 2, badge: 'bg-green-200 text-green-900' },
+  2: { ...DIFFICULTIES[2], choices: 4, badge: 'bg-yellow-200 text-yellow-900' },
+  3: { ...DIFFICULTIES[3], sub: 'tape la réponse', choices: 0, badge: 'bg-red-200 text-red-900' },
 }
 
 export default function Quiz({
@@ -290,8 +291,8 @@ function TypingAnswer({ typed, picked, expected, onDigit, onDelete, onSubmit }) 
 
 function ResultScreen({ ratio, correct, total, level, moduleHomePath, nextLevelPath, nextLevel, onReplay }) {
   const stars = computeStars(ratio)
-  const NEXT_LEVEL_ICONS = { 2: '💪', 3: '🔥' }
-  const NEXT_LEVEL_LABELS = { 2: 'Moyen', 3: 'Expert' }
+  const NEXT_LEVEL_ICONS = { 2: DIFFICULTIES[2].icon, 3: DIFFICULTIES[3].icon }
+  const NEXT_LEVEL_LABELS = { 2: DIFFICULTIES[2].label, 3: DIFFICULTIES[3].label }
 
   return (
     <div className="min-h-screen p-4 sm:p-8 flex items-center justify-center">

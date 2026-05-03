@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useProfile } from '../../core/ProfileContext.jsx'
 import BackButton from '../../components/BackButton.jsx'
+import DifficultyLinks from '../../components/DifficultyLinks.jsx'
 import { ADDITION_LESSONS } from './additionsData.js'
 
 export default function AdditionsHome() {
@@ -67,11 +68,7 @@ function LessonCard({ lesson, stars, discovered, index }) {
         >
           {discovered ? '🔍 Revoir' : '🔍 Découvrir'}
         </Link>
-        <div className="grid grid-cols-3 gap-2">
-          <Link to={`/additions/entrainement/${lesson.id}/1`} className="text-lg py-2 rounded-lg bg-green-200 hover:bg-green-300 text-center" title="Facile">🌱</Link>
-          <Link to={`/additions/entrainement/${lesson.id}/2`} className="text-lg py-2 rounded-lg bg-yellow-200 hover:bg-yellow-300 text-center" title="Moyen">💪</Link>
-          <Link to={`/additions/entrainement/${lesson.id}/3`} className="text-lg py-2 rounded-lg bg-red-200 hover:bg-red-300 text-center" title="Expert">🔥</Link>
-        </div>
+        <DifficultyLinks compact getPath={(level) => `/additions/entrainement/${lesson.id}/${level}`} />
       </div>
     </motion.div>
   )

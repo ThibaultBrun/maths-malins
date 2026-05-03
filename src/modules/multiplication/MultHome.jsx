@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useProfile } from '../../core/ProfileContext.jsx'
 import BackButton from '../../components/BackButton.jsx'
+import DifficultyLinks from '../../components/DifficultyLinks.jsx'
 
 const TABLES = [2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -42,15 +43,22 @@ export default function MultHome() {
 
         <div className="card-kid">
           <h2 className="text-2xl font-bold text-gray-700 mb-4">🎯 Tu te sens prêt ?</h2>
-          <Link
-            to="/multiplications/defi"
-            className="block w-full bg-gradient-to-r from-red-500 to-pink-500 text-white text-center py-4 rounded-2xl font-bold text-2xl shadow-lg hover:scale-[1.02] transition-transform"
-          >
-            🏆 Mode Défi (chrono)
-          </Link>
-          <p className="text-center text-gray-500 mt-2 text-sm">
-            Toutes les tables, le plus vite possible !
-          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <Link
+              to="/multiplications/tables"
+              className="block w-full bg-gradient-to-r from-orange-400 to-pink-500 text-white text-center py-4 rounded-2xl font-bold text-xl shadow-lg hover:scale-[1.02] transition-transform"
+            >
+              Choisir mes tables
+              <span className="block text-sm font-semibold opacity-90">10 opérations à faire</span>
+            </Link>
+            <Link
+              to="/multiplications/defi"
+              className="block w-full bg-gradient-to-r from-red-500 to-pink-500 text-white text-center py-4 rounded-2xl font-bold text-xl shadow-lg hover:scale-[1.02] transition-transform"
+            >
+              🏆 Mode Défi
+              <span className="block text-sm font-semibold opacity-90">chrono toutes les tables</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
@@ -82,29 +90,7 @@ function TableCard({ table, stars, discovered, index }) {
         >
           {discovered ? '🔍 Revoir' : '🔍 Découvrir'}
         </Link>
-        <div className="grid grid-cols-3 gap-1">
-          <Link
-            to={`/multiplications/entrainement/${table}/1`}
-            title="Niveau facile : 2 choix"
-            className="text-lg py-1.5 rounded-lg bg-green-200 hover:bg-green-300"
-          >
-            🌱
-          </Link>
-          <Link
-            to={`/multiplications/entrainement/${table}/2`}
-            title="Niveau moyen : 4 choix"
-            className="text-lg py-1.5 rounded-lg bg-yellow-200 hover:bg-yellow-300"
-          >
-            💪
-          </Link>
-          <Link
-            to={`/multiplications/entrainement/${table}/3`}
-            title="Niveau expert : tape la réponse"
-            className="text-lg py-1.5 rounded-lg bg-red-200 hover:bg-red-300"
-          >
-            🔥
-          </Link>
-        </div>
+        <DifficultyLinks compact getPath={(level) => `/multiplications/entrainement/${table}/${level}`} />
       </div>
     </motion.div>
   )

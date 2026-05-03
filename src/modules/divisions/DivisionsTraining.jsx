@@ -3,7 +3,7 @@ import Quiz from '../../components/Quiz.jsx'
 import { getLesson, getHintFor } from './divisionsData.js'
 
 export default function DivisionsTraining() {
-  const { lessonId } = useParams()
+  const { lessonId, level: levelParam } = useParams()
   const lesson = getLesson(lessonId)
   if (!lesson) return <Navigate to="/divisions" replace />
 
@@ -11,6 +11,7 @@ export default function DivisionsTraining() {
 
   return (
     <Quiz
+      key={`${lesson.id}-${levelParam || 2}`}
       moduleId="divisions"
       lessonId={lesson.id}
       allQuestions={allQuestions}

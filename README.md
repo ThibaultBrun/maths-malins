@@ -1,6 +1,10 @@
 # Maths Malins
 
-Application web ludique pour apprendre les mathématiques aux enfants (additions, soustractions, multiplications, divisions).
+Application web ludique pour apprendre les mathématiques aux enfants : additions, soustractions, multiplications, divisions et fractions.
+
+## Jouer en ligne
+
+https://thibaultbrun.github.io/maths-malins/
 
 ## Démarrer
 
@@ -17,12 +21,12 @@ Ouvre http://localhost:5173/
 npm run build
 ```
 
-Le résultat est dans `dist/`, prêt à être déployé en statique (GitHub Pages, Netlify, Vercel...).
+Le résultat est dans `dist/`, prêt à être déployé en statique avec GitHub Pages.
 
 ## Architecture
 
 - **Vite + React + Tailwind + Framer Motion**, 100 % front, aucun backend
 - Progression de l'enfant en `localStorage`
-- Sons générés via Web Audio API (pas de fichier audio)
+- Sons générés via Web Audio API, sans fichier audio
 - Modules indépendants dans `src/modules/<module>/`
 - Composant de quiz partagé : `src/components/Quiz.jsx`

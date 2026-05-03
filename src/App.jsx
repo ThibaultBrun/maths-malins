@@ -4,6 +4,7 @@ import MultiplicationModule from './modules/multiplication/MultiplicationModule.
 import AdditionsModule from './modules/additions/AdditionsModule.jsx'
 import SoustractionsModule from './modules/soustractions/SoustractionsModule.jsx'
 import DivisionsModule from './modules/divisions/DivisionsModule.jsx'
+import FractionsModule from './modules/fractions/FractionsModule.jsx'
 import { ProfileProvider } from './core/ProfileContext.jsx'
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/additions/*" element={<AdditionsModule />} />
         <Route path="/soustractions/*" element={<SoustractionsModule />} />
         <Route path="/divisions/*" element={<DivisionsModule />} />
+        <Route path="/fractions/*" element={<FractionsModule />} />
       </Routes>
     </ProfileProvider>
   )

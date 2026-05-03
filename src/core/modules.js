@@ -35,4 +35,13 @@ export const MODULES = [
     path: '/divisions',
     available: true,
   },
+  {
+    id: 'fractions',
+    title: 'Fractions',
+    emoji: '🍕',
+    color: 'from-pink-400 to-rose-500',
+    description: 'Colorie les parts, lis les moitiés, les tiers et les quarts.',
+    path: '/fractions',
+    available: true,
+  },
 ]

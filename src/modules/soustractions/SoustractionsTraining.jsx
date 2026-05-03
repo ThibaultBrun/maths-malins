@@ -3,7 +3,7 @@ import Quiz from '../../components/Quiz.jsx'
 import { getLesson, getHintFor } from './soustractionsData.js'
 
 export default function SoustractionsTraining() {
-  const { lessonId } = useParams()
+  const { lessonId, level: levelParam } = useParams()
   const lesson = getLesson(lessonId)
   if (!lesson) return <Navigate to="/soustractions" replace />
 
@@ -11,6 +11,7 @@ export default function SoustractionsTraining() {
 
   return (
     <Quiz
+      key={`${lesson.id}-${levelParam || 2}`}
       moduleId="soustractions"
       lessonId={lesson.id}
       allQuestions={allQuestions}

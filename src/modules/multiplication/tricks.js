@@ -171,6 +171,10 @@ export function getMultiplicationsForTable(table) {
   }))
 }
 
+export function getMultiplicationsForTables(tables) {
+  return tables.flatMap((table) => getMultiplicationsForTable(table))
+}
+
 // Pour chaque facteur "stratégique", on a une fonction qui produit l'astuce ciblée
 // quand l'autre facteur vaut `n`. Ordre = priorité (le premier match gagne).
 const HINT_BUILDERS = [
